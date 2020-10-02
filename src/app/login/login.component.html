@@ -1,0 +1,27 @@
+<p>This is login page</p>
+
+<form [formGroup]="itraceForm" (ngSubmit)="onSubmit()" novalidate>
+    <label>
+        Email:
+        <input type="text" formControlName="email">
+    </label>
+
+    <div *ngIf="!email.valid && (email.dirty ||email.touched)">
+        <div [hidden]="!email.errors.required">
+          email is required
+        </div>
+        <div [hidden]="!email.errors.email">
+          invalid email id
+        </div>
+      </div>
+
+    <br>
+
+    <label>
+        Password:
+        <input type="password" formControlName="password">
+    </label>
+    <p>
+        <button type="submit" [disabled]="!itraceForm.valid">Submit</button>
+    </p>
+</form>
